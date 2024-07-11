@@ -1,0 +1,18 @@
+def string_substrings(words):
+    result = []
+    for i in range(len(words)):
+        for j in range(len(words)):
+            if i != j and words[i] in words[j]:
+                result.append(words[i])
+                break
+    return list(set(result))
+
+# Test Cases
+words1 = ["mass", "as", "hero", "superhero"]
+print(string_substrings(words1))  # Output: ['as', 'hero']
+
+words2 = ["leetcode", "et", "code"]
+print(string_substrings(words2))  # Output: ['et', 'code']
+
+words3 = ["blue", "green", "bu"]
+print(string_substrings(words3))  # Output: []
