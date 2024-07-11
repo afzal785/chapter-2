@@ -1,0 +1,9 @@
+def strStr(haystack, needle):
+    if needle in haystack:
+        return haystack.index(needle)
+    else:
+        return -1
+
+# Test the function
+print(strStr("sadbutsad", "sad"))  # Output: 0
+print(strStr("leetcode", "leeto"))  # Output: -1
