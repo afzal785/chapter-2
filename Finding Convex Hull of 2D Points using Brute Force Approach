@@ -1,0 +1,26 @@
+from itertools import combinations
+
+def orientation(p, q, r):
+    val = (q[1] - p[1]) * (r[0] - q[0]) - (q[0] - p[0]) * (r[1] - q[1])
+    if val == 0:
+        return 0
+    return 1 if val > 0 else -1
+
+def convex_hull(points):
+    n = len(points)
+    if n < 3:
+        return points
+
+    hull = []
+    for p in combinations(points, 3):
+        if orientation(*p) != -1:
+            hull.extend(p)
+
+    return list(set(hull))
+
+# Input points
+points = [(1, 1), (4, 6), (8, 1), (0, 0), (3, 3)]
+
+# Finding Convex Hull
+convex_hull_points = convex_hull(points)
+print("Convex Hull:", convex_hull_points)
